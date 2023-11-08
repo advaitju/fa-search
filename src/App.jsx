@@ -10,14 +10,10 @@ function App() {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const iconsElements = useMemo(() => {
-    if (search.length < 3) return;
+    if (search.length < 2) return;
 
     return icons.map((icon, index) => {
-      const found = icon?.iconName?.includes(
-        search.toLowerCase().replace(/ /g, '-')
-      );
-      console.log(icon?.iconName, found);
-      // eslint-disable-next-line no-extra-boolean-cast
+      const found = icon?.iconName?.includes(search);
       if (!found) return;
 
       return (
@@ -33,7 +29,9 @@ function App() {
       <p>Search</p>
       <input
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={(e) =>
+          setSearch(e.target.value.toLowerCase().replace(/ /g, '-'))
+        }
         placeholder="Example: arrow, calendar, envelope"
       />
       <div className="icons">{iconsElements}</div>
