@@ -7,7 +7,6 @@ import { useMemo, useState } from 'react';
 function App() {
   const [search, setSearch] = useState('');
   const [icons, setIcons] = useState(Object.values(allIcons));
-  console.log(icons);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const iconsElements = useMemo(() => {
@@ -31,7 +30,12 @@ function App() {
 
   return (
     <div>
-      <input value={search} onChange={(e) => setSearch(e.target.value)} />
+      <p>Search</p>
+      <input
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Example: arrow, calendar, envelope"
+      />
       <div className="icons">{iconsElements}</div>
     </div>
   );
