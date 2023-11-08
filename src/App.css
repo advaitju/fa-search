@@ -40,3 +40,17 @@
 .read-the-docs {
   color: #888;
 }
+
+input {
+  margin: 1rem;
+  min-width: 20rem;
+}
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+
+  & div {
+    margin: 0 0.25rem;
+  }
+}
